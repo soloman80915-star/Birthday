@@ -1,13 +1,19 @@
+# Website 2.py – Romantic Birthday Website (FINAL – Smooth Hearts)
 
+HER_NAME = "Vaveeeeee"   # 💖 Change her name here
+YOUR_NAME = "Felix"      # 💌 Change your name for signature
+MUSIC_FILE = "tose_naina.mp3"  # Put your mp3 in the same folder
+
+html_content = f"""
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday Vaveeeeee ❤️</title>
+<title>Happy Birthday {HER_NAME} ❤️</title>
 
 <style>
-body {
+body {{
     font-family: Arial, sans-serif;
     text-align: center;
     background: linear-gradient(135deg, #ff69b4, #dda0dd);
@@ -15,9 +21,9 @@ body {
     margin: 0;
     height: 100vh;
     overflow: hidden;
-}
+}}
 
-.slide {
+.slide {{
     position: absolute;
     width: 100%;
     height: 100%;
@@ -28,77 +34,43 @@ body {
     opacity: 0;
     transition: opacity 2s ease-in-out;
     padding: 20px;
-}
+}}
 
-.slide.active {
+.slide.active {{
     opacity: 1;
-}
+}}
 
-h1 {
-    font-size: 3em;
-}
-
-p {
-    font-size: 1.6em;
-    max-width: 850px;
-}
+h1 {{ font-size: 3em; }}
+p {{ font-size: 1.6em; max-width: 850px; }}
 
 /* Animations */
-.bounce { animation: bounce 2s infinite; }
-.heart { font-size: 9em; animation: heartBeat 1.5s infinite; }
-.float { font-size: 4em; animation: float 3s infinite; }
-.sparkle { animation: sparkle 1.5s infinite alternate; }
-.fade { animation: fadeIn 3s ease-in; }
-.zoom { animation: zoom 2s infinite alternate; }
-.thankyou { animation: thankFade 3s ease-in-out; }
-.love { animation: lovePulse 2s infinite alternate; }
+.bounce {{ animation: bounce 2s infinite; }}
+.heart {{ font-size: 9em; animation: heartBeat 2.5s infinite ease-in-out; }}
+.float {{ font-size: 4em; animation: float 3s infinite; }}
+.sparkle {{ animation: sparkle 1.5s infinite alternate; }}
+.fade {{ animation: fadeIn 3s ease-in; }}
+.thankyou {{ animation: thankFade 3s ease-in-out; }}
+.love {{ animation: lovePulse 2s infinite alternate; }}
 
-@keyframes bounce {
-    0%,100% { transform: translateY(0); }
-    50% { transform: translateY(-30px); }
-}
+/* Floating hearts on final slide */
+@keyframes floatHeartsLast {{
+    0% {{ transform: translateY(0) rotate(0deg); opacity: 1; }}
+    50% {{ transform: translateY(-50px) rotate(20deg); opacity: 0.7; }}
+    100% {{ transform: translateY(-100px) rotate(-20deg); opacity: 0; }}
+}}
+.floating-heart {{
+    position: absolute;
+    font-size: 2.5em;
+    animation: floatHeartsLast 4s infinite;
+}}
 
-@keyframes heartBeat {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.3); }
-    100% { transform: scale(1); }
-}
-
-@keyframes float {
-    0%,100% { transform: translateY(0); }
-    50% { transform: translateY(-25px); }
-}
-
-@keyframes sparkle {
-    from { text-shadow: 0 0 10px white; }
-    to { text-shadow: 0 0 30px #ff1493; }
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes zoom {
-    from { transform: scale(1); }
-    to { transform: scale(1.1); }
-}
-
-@keyframes thankFade {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes lovePulse {
-    from {
-        transform: scale(1);
-        text-shadow: 0 0 10px #fff;
-    }
-    to {
-        transform: scale(1.15);
-        text-shadow: 0 0 35px #ff1493;
-    }
-}
+@keyframes bounce {{0%,100%{{transform:translateY(0);}}50%{{transform:translateY(-30px);}}}}
+@keyframes heartBeat {{0%{{transform:scale(1);}}50%{{transform:scale(1.25);}}100%{{transform:scale(1);}}}}
+@keyframes float {{0%,100%{{transform:translateY(0);}}50%{{transform:translateY(-25px);}}}}
+@keyframes sparkle {{from{{text-shadow:0 0 10px white;}}to{{text-shadow:0 0 30px #ff1493;}}}}
+@keyframes fadeIn {{from{{opacity:0;}}to{{opacity:1;}}}}
+@keyframes thankFade {{from{{opacity:0;transform:translateY(20px);}}to{{opacity:1;transform:translateY(0);}}}}
+@keyframes lovePulse {{from{{transform:scale(1);text-shadow:0 0 10px #fff;}}to{{transform:scale(1.15);text-shadow:0 0 35px #ff1493;}}}}
 </style>
 
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
@@ -106,14 +78,14 @@ p {
 
 <body>
 
-<!-- 🎵 Background Music (add your MP3 file in same folder) -->
+<!-- Background Music -->
 <audio id="bgMusic" loop>
-    <source src=""D:\Code\＂Tose Naina Mickey Virus＂ Arijit Singh Latest Song ｜ Mickey Virus.mp3"" type="audio/mpeg">
+    <source src="{MUSIC_FILE}" type="audio/mpeg">
 </audio>
 
 <!-- Slide 1 -->
 <div class="slide active">
-    <h1 class="bounce">🎉 Happy Birthday, Vaveeeeee! 🎉</h1>
+    <h1 class="bounce">🎉 Happy Birthday, {HER_NAME}! 🎉</h1>
     <p>My babyyyyy is 18!!!!!!!!!!</p>
     <p style="font-size:1em;opacity:0.8;">(Tap anywhere for music 🎶)</p>
 </div>
@@ -121,7 +93,7 @@ p {
 <!-- Slide 2 -->
 <div class="slide">
     <div class="heart">💖</div>
-    <p>You give me soooo much happiness vaveeee.  
+    <p>You give me soooo much happiness {HER_NAME}.  
     You make me smile and giggle just by seeing you.</p>
 </div>
 
@@ -134,71 +106,89 @@ p {
 <!-- Slide 4 -->
 <div class="slide">
     <h1 class="sparkle">You Are The Best ✨</h1>
-    <p>Your smile makes me forget all my sadness vaveeee.</p>
+    <p>Your smile makes me forget all my sadness {HER_NAME}.</p>
 </div>
 
 <!-- Slide 5 -->
-<div class="slide">
-    <h1 class="zoom">🌷 Be Yourself 🌷</h1>
-    <p>Your caring makes me feel loved again.</p>
-</div>
-
-<!-- Slide 6 -->
 <div class="slide">
     <h1 class="thankyou">Thank you for coming into my life 💖</h1>
     <p>You changed my whole life.</p>
 </div>
 
-<!-- Slide 7 (FINAL) -->
+<!-- Slide 6 (FINAL) -->
 <div class="slide">
-    <h1 class="love">I love you, Vaveeeeee ❤️</h1>
+    <h1 class="love">I love you, {HER_NAME} ❤️</h1>
     <p>Always and Forever.</p>
     <p>That means you are stuck with me hehe 😁</p>
+    <!-- Floating hearts -->
+    <div class="floating-heart" style="left:20%; animation-delay:0s;">💖</div>
+    <div class="floating-heart" style="left:50%; animation-delay:1s;">💞</div>
+    <div class="floating-heart" style="left:80%; animation-delay:2s;">💕</div>
+    <!-- Signature -->
+    <p style="margin-top:30px; font-size:1.2em; opacity:0.8;">– From {YOUR_NAME} 💌</p>
 </div>
 
 <script>
-/* 🎞️ Slide control – NO LOOP */
+/* Slide control – NO LOOP */
 let slides = document.querySelectorAll(".slide");
 let index = 0;
 
-const interval = setInterval(() => {
+const interval = setInterval(() => {{
     slides[index].classList.remove("active");
     index++;
 
-    if (index >= slides.length) {
+    if (index >= slides.length) {{
         clearInterval(interval);
         slides[slides.length - 1].classList.add("active");
         return;
-    }
+    }}
 
     slides[index].classList.add("active");
 
-    if (typeof confetti !== "undefined") {
-        confetti({
+    if (typeof confetti !== "undefined") {{
+        confetti({{
             particleCount: 180,
             spread: 120,
-            origin: { y: 0.6 }
-        });
-    }
-}, 10000);
+            origin: {{ y: 0.6 }}
+        }});
+    }}
+}}, 10000);
 
-/* 🎵 Music autoplay on first tap */
+/* Music autoplay on first tap */
 const music = document.getElementById("bgMusic");
 music.muted = true;
-music.play().catch(() => {});
-
-document.body.addEventListener("click", () => {
+music.play().catch(() => {{}});
+document.body.addEventListener("click", () => {{
     music.muted = false;
     music.play();
-}, { once: true });
+}}, {{ once: true }});
 
-/* 🔐 Password */
+/* Music fade-out on last slide */
+const lastSlideIndex = slides.length - 1;
+const fadeAudio = setInterval(() => {{
+    if (index === lastSlideIndex && !music.paused) {{
+        if (music.volume > 0.05) {{
+            music.volume -= 0.01;
+        }} else {{
+            music.volume = 0;
+            clearInterval(fadeAudio);
+        }}
+    }}
+}}, 200);
+
+/* Password */
 var password = prompt("Enter the password:");
-if (password !== "Pikiri") {
+if (password !== "Pikiri") {{
     document.body.innerHTML =
     '<div style="background:#333;color:#fff;height:100vh;display:flex;align-items:center;justify-content:center;"><h1>Access Denied</h1></div>';
-}
+}}
 </script>
 
 </body>
 </html>
+"""
+
+with open("birthday.html", "w", encoding="utf-8") as f:
+    f.write(html_content)
+
+print("❤️ birthday.html created successfully!")
