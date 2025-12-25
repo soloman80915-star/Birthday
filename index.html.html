@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Vaveeeeee ❤️</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: linear-gradient(135deg, #ff69b4, #dda0dd);
+    color: #fff;
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+    padding: 20px;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+h1 {
+    font-size: 3em;
+}
+
+p {
+    font-size: 1.6em;
+    max-width: 850px;
+}
+
+/* Animations */
+.bounce { animation: bounce 2s infinite; }
+.heart { font-size: 9em; animation: heartBeat 1.5s infinite; }
+.float { font-size: 4em; animation: float 3s infinite; }
+.sparkle { animation: sparkle 1.5s infinite alternate; }
+.fade { animation: fadeIn 3s ease-in; }
+.zoom { animation: zoom 2s infinite alternate; }
+.thankyou { animation: thankFade 3s ease-in-out; }
+.love { animation: lovePulse 2s infinite alternate; }
+
+@keyframes bounce {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-30px); }
+}
+
+@keyframes heartBeat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+}
+
+@keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-25px); }
+}
+
+@keyframes sparkle {
+    from { text-shadow: 0 0 10px white; }
+    to { text-shadow: 0 0 30px #ff1493; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes zoom {
+    from { transform: scale(1); }
+    to { transform: scale(1.1); }
+}
+
+@keyframes thankFade {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes lovePulse {
+    from {
+        transform: scale(1);
+        text-shadow: 0 0 10px #fff;
+    }
+    to {
+        transform: scale(1.15);
+        text-shadow: 0 0 35px #ff1493;
+    }
+}
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+
+<body>
+
+<!-- 🎵 Background Music (add your MP3 file in same folder) -->
+<audio id="bgMusic" loop>
+    <source src=""D:\Code\＂Tose Naina Mickey Virus＂ Arijit Singh Latest Song ｜ Mickey Virus.mp3"" type="audio/mpeg">
+</audio>
+
+<!-- Slide 1 -->
+<div class="slide active">
+    <h1 class="bounce">🎉 Happy Birthday, Vaveeeeee! 🎉</h1>
+    <p>My babyyyyy is 18!!!!!!!!!!</p>
+    <p style="font-size:1em;opacity:0.8;">(Tap anywhere for music 🎶)</p>
+</div>
+
+<!-- Slide 2 -->
+<div class="slide">
+    <div class="heart">💖</div>
+    <p>You give me soooo much happiness vaveeee.  
+    You make me smile and giggle just by seeing you.</p>
+</div>
+
+<!-- Slide 3 -->
+<div class="slide">
+    <div class="float">💕 💫 🌸</div>
+    <p>I am sooo lucky I got you.</p>
+</div>
+
+<!-- Slide 4 -->
+<div class="slide">
+    <h1 class="sparkle">You Are The Best ✨</h1>
+    <p>Your smile makes me forget all my sadness vaveeee.</p>
+</div>
+
+<!-- Slide 5 -->
+<div class="slide">
+    <h1 class="zoom">🌷 Be Yourself 🌷</h1>
+    <p>Your caring makes me feel loved again.</p>
+</div>
+
+<!-- Slide 6 -->
+<div class="slide">
+    <h1 class="thankyou">Thank you for coming into my life 💖</h1>
+    <p>You changed my whole life.</p>
+</div>
+
+<!-- Slide 7 (FINAL) -->
+<div class="slide">
+    <h1 class="love">I love you, Vaveeeeee ❤️</h1>
+    <p>Always and Forever.</p>
+    <p>That means you are stuck with me hehe 😁</p>
+</div>
+
+<script>
+/* 🎞️ Slide control – NO LOOP */
+let slides = document.querySelectorAll(".slide");
+let index = 0;
+
+const interval = setInterval(() => {
+    slides[index].classList.remove("active");
+    index++;
+
+    if (index >= slides.length) {
+        clearInterval(interval);
+        slides[slides.length - 1].classList.add("active");
+        return;
+    }
+
+    slides[index].classList.add("active");
+
+    if (typeof confetti !== "undefined") {
+        confetti({
+            particleCount: 180,
+            spread: 120,
+            origin: { y: 0.6 }
+        });
+    }
+}, 10000);
+
+/* 🎵 Music autoplay on first tap */
+const music = document.getElementById("bgMusic");
+music.muted = true;
+music.play().catch(() => {});
+
+document.body.addEventListener("click", () => {
+    music.muted = false;
+    music.play();
+}, { once: true });
+
+/* 🔐 Password */
+var password = prompt("Enter the password:");
+if (password !== "Pikiri") {
+    document.body.innerHTML =
+    '<div style="background:#333;color:#fff;height:100vh;display:flex;align-items:center;justify-content:center;"><h1>Access Denied</h1></div>';
+}
+</script>
+
+</body>
+</html>
